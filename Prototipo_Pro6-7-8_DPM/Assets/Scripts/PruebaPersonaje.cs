@@ -40,8 +40,6 @@ public class PruebaPersonaje : MonoBehaviour
 
         Vector3 movement = transform.right * xInput + transform.forward * zInput;
 
-        print(movement);
-
         cmpCC.Move(movement * fSpeed * Time.deltaTime);
 
         v3Velocity.y += fGravity * Time.deltaTime;
