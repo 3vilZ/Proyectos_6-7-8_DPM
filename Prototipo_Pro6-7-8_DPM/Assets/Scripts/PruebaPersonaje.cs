@@ -19,6 +19,7 @@ public class PruebaPersonaje : MonoBehaviour
 
     Vector3 v3Velocity;
     bool bIsGrounded;
+    
 
     private void Awake()
     {
