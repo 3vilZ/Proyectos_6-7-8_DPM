@@ -17,6 +17,12 @@ public class InkTestingScript : MonoBehaviour
         {
             Debug.Log(story.currentChoices[i].text);
         }
+
+        story.ChooseChoiceIndex(0);
+
+        Debug.Log(loadStoryChunk());
+
+        Debug.Log(loadStoryChunk());
     }
     // Update is called once per frame
     void Update()
