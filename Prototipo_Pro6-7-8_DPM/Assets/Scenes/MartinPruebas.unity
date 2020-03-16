@@ -1755,6 +1755,7 @@ GameObject:
   - component: {fileID: 1391093957}
   - component: {fileID: 1391093956}
   - component: {fileID: 1391093960}
+  - component: {fileID: 1391093961}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1854,6 +1855,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: fb858a68276f5d54baaf7e74ae6dd66a, type: 3}
+  textPrefab: {fileID: 5188736259071382727, guid: 8501256c55f5a68468e6f04007c96a98,
+    type: 3}
+  buttonPrefab: {fileID: 154261350765066595, guid: bdd7b179963b71846b207a570297328d,
+    type: 3}
+--- !u!114 &1391093961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391093955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 30
+    m_Right: 30
+    m_Top: 30
+    m_Bottom: 30
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &1459793317
 GameObject:
   m_ObjectHideFlags: 0
