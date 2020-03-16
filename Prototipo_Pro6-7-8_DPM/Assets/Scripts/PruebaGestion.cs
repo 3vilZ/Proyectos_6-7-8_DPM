@@ -8,6 +8,7 @@ public class PruebaGestion : MonoBehaviour
     public Transform tCamera;
     public bool bItemEquipped = false;
     public GameObject goItemEquipped = null;
+    public GameObject goItemInteracted = null;
 
     float fDetectionRange = 5;
 
@@ -40,9 +41,10 @@ public class PruebaGestion : MonoBehaviour
                     goItemEquipped = hit.collider.gameObject;
                     CatchItem();
                 }
-                else if (hit.collider.gameObject.GetComponent<Interactable>().bInteractable && !bItemEquipped)
+                else if (hit.collider.gameObject.GetComponent<Interactable>().bInteractable)
                 {
-
+                    goItemInteracted = hit.collider.gameObject;
+                    InteractItem();
                 }
             }
         }
@@ -58,6 +60,23 @@ public class PruebaGestion : MonoBehaviour
         goItemEquipped.transform.position = tHandPosition.position;
         goItemEquipped.transform.rotation = tHandPosition.rotation;
         goItemEquipped.transform.parent = tHandPosition;
+    }
+
+    public void InteractItem()
+    {
+        if (goItemInteracted.GetComponent<PuertaSimple>())
+        {
+            if(!goItemInteracted.GetComponent<PuertaSimple>().bOpen)
+            {
+                goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Open");
+                goItemInteracted.GetComponent<PuertaSimple>().bOpen = true;
+            }
+            else
+            {
+                goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Close");
+                goItemInteracted.GetComponent<PuertaSimple>().bOpen = false;
+            }
+        }
     }
 
     public void UseItem()
