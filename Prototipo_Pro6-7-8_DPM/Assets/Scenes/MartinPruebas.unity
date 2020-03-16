@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: NaN, g: Infinity, b: NaN, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -278,6 +278,7 @@ MonoBehaviour:
   tCamera: {fileID: 963194228}
   bItemEquipped: 0
   goItemEquipped: {fileID: 0}
+  goItemInteracted: {fileID: 0}
 --- !u!1 &174241580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1280,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1365,6 +1367,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fMouseSpeed: 100
   tPlayerBody: {fileID: 103307730}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f0b5bd7d2da914fa15dccee76b253b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: fb858a68276f5d54baaf7e74ae6dd66a, type: 3}
 --- !u!1 &965040196
 GameObject:
   m_ObjectHideFlags: 0
