@@ -46,6 +46,13 @@ public class PruebaGestion : MonoBehaviour
                     goItemInteracted = hit.collider.gameObject;
                     InteractItem();
                 }
+                else if (!hit.collider.gameObject.GetComponent<Interactable>())
+                {
+                    if(goItemEquipped != null)
+                    {
+                        goItemEquipped = null;
+                    }
+                }
             }
         }
     }
@@ -64,6 +71,8 @@ public class PruebaGestion : MonoBehaviour
 
     public void InteractItem()
     {
+        //PuertaSimple
+
         if (goItemInteracted.GetComponent<PuertaSimple>())
         {
             if(!goItemInteracted.GetComponent<PuertaSimple>().bOpen)
@@ -76,6 +85,46 @@ public class PruebaGestion : MonoBehaviour
                 goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Close");
                 goItemInteracted.GetComponent<PuertaSimple>().bOpen = false;
             }
+        }
+
+        //PuertaLlave
+
+        if (goItemInteracted.GetComponent<PuertaLlave>())
+        {
+            if (!goItemInteracted.GetComponent<PuertaLlave>().bLocked)
+            {
+                if (!goItemInteracted.GetComponent<PuertaLlave>().bOpen)
+                {
+                    goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Open");
+                    goItemInteracted.GetComponent<PuertaLlave>().bOpen = true;
+                }
+                else
+                {
+                    goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Close");
+                    goItemInteracted.GetComponent<PuertaLlave>().bOpen = false;
+                }
+            }
+
+            if (goItemInteracted.GetComponent<PuertaLlave>().bLocked && goItemEquipped.GetComponent<LlaveSimple>() && goItemEquipped != null)
+            {
+                goItemInteracted.GetComponent<PuertaLlave>().bLocked = false;
+                goItemEquipped.GetComponent<LlaveSimple>().Destroy();
+                goItemEquipped = null;
+                bItemEquipped = false;
+
+                goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Open");
+                goItemInteracted.GetComponent<PuertaLlave>().bOpen = true;
+            }
+
+            
+        }
+
+            //PlataformaSimple
+
+            if (goItemInteracted.GetComponent<PlataformaSimple>())
+        {
+            //transform.position = Vector3.MoveTowards(transform.position, goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position, 1);
+            transform.position = goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position;
         }
     }
 
