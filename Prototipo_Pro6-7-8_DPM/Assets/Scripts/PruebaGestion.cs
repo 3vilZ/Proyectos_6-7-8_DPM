@@ -7,20 +7,30 @@ public class PruebaGestion : MonoBehaviour
     public Transform tHandPosition;
     public Transform tCamera;
     public bool bItemEquipped = false;
+    public bool bInteracting = false;
     public GameObject goItemEquipped = null;
     public GameObject goItemInteracted = null;
 
     float fDetectionRange = 5;
 
+    PruebaPersonaje pruebaPersonaje;
+
     void Start()
     {
-        
+        pruebaPersonaje = GetComponent<PruebaPersonaje>();
     }
 
     
     void Update()
     {
-        ItemDetection();
+        if (bInteracting)
+        {
+            StopInteract();
+        }
+        else
+        {
+            ItemDetection();
+        }
 
         if (bItemEquipped)
         {
@@ -119,12 +129,37 @@ public class PruebaGestion : MonoBehaviour
             
         }
 
-            //PlataformaSimple
+        //PlataformaSimple
 
-            if (goItemInteracted.GetComponent<PlataformaSimple>())
+        if (goItemInteracted.GetComponent<PlataformaSimple>())
         {
             //transform.position = Vector3.MoveTowards(transform.position, goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position, 1);
-            transform.position = goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position;
+            gameObject.transform.position = goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position;
+        }
+
+        //Escalera
+        if (goItemInteracted.GetComponent<Escaleras>())
+        {
+            bInteracting = true;
+            DropItem2();
+            gameObject.transform.position = goItemInteracted.GetComponent<Escaleras>().tPuntoInicio.position;
+            goItemInteracted.GetComponent<Escaleras>().OnStairs();
+            pruebaPersonaje.bEscaleras = true;
+        }
+    }
+
+    public void StopInteract()
+    {
+        //Escalera
+
+        if (goItemInteracted.GetComponent<Escaleras>())
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                pruebaPersonaje.bEscaleras = false;
+                goItemInteracted.GetComponent<Escaleras>().OnStairs();
+                bInteracting = false;
+            }
         }
     }
 
@@ -136,6 +171,18 @@ public class PruebaGestion : MonoBehaviour
     public void DropItem()
     {
         if (Input.GetKeyDown(KeyCode.Q))
+        {
+            goItemEquipped.transform.parent = null;
+            goItemEquipped.GetComponent<Rigidbody>().useGravity = true;
+            goItemEquipped.GetComponent<Rigidbody>().isKinematic = false;
+            goItemEquipped = null;
+            bItemEquipped = false;
+        }
+    }
+
+    public void DropItem2()
+    {
+        if (goItemEquipped != null)
         {
             goItemEquipped.transform.parent = null;
             goItemEquipped.GetComponent<Rigidbody>().useGravity = true;

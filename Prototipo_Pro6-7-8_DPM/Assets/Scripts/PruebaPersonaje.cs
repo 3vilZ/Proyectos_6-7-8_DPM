@@ -19,7 +19,8 @@ public class PruebaPersonaje : MonoBehaviour
 
     Vector3 v3Velocity;
     bool bIsGrounded;
-    
+
+    public bool bEscaleras = false;
 
     private void Awake()
     {
@@ -28,6 +29,30 @@ public class PruebaPersonaje : MonoBehaviour
     }
     
     void Update()
+    {
+        if (bEscaleras)
+        {
+            Escaleras();
+        }
+        else
+        {
+            Moving();
+        }
+    }
+
+    private void Escaleras()
+    {
+        cmpAnim.SetBool("Running", false);
+        cmpAnim.SetBool("Walking", false);
+
+        float zInput = Input.GetAxis("Vertical");
+
+        Vector3 movement = transform.up * zInput;
+
+        cmpCC.Move(movement * 2 * Time.deltaTime);
+    }
+
+    private void Moving()
     {
         bIsGrounded = Physics.CheckSphere(tGroundCheck.position, fGroundRadius, groundMask);
 
@@ -52,7 +77,7 @@ public class PruebaPersonaje : MonoBehaviour
             fSpeed = fRun;
         }
         else
-        {           
+        {
             fSpeed = fWalk;
         }
 
