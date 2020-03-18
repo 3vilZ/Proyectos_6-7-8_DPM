@@ -5,4 +5,5 @@ using UnityEngine;
 public class Cubo : Interactable
 {
     public GameObject goInsideItem;
+    public Transform tLocationPoint;
 }

@@ -49,6 +49,13 @@ public class PruebaGestion : MonoBehaviour
                 if(hit.collider.gameObject.GetComponent<Interactable>().bCatchable && !bItemEquipped)
                 {
                     goItemEquipped = hit.collider.gameObject;
+
+                    if (goItemEquipped.GetComponent<Interactable>().bParented)
+                    {
+                        goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>().goInsideItem = null;
+                        goItemEquipped.GetComponent<Interactable>().bParented = false;
+                    }
+
                     CatchItem();
                 }
                 else if (hit.collider.gameObject.GetComponent<Interactable>().bInteractable)
@@ -80,6 +87,32 @@ public class PruebaGestion : MonoBehaviour
 
     public void InteractItem()
     {
+        //Cubo
+
+        if (goItemInteracted.GetComponent<Cubo>())
+        {
+            if (goItemEquipped == null)
+            {
+                goItemEquipped = goItemInteracted;
+                CatchItem();
+            }
+            else
+            {
+                if (goItemInteracted.GetComponent<Cubo>().goInsideItem == null)
+                {
+                    goItemInteracted.GetComponent<Cubo>().goInsideItem = goItemEquipped;
+                    goItemEquipped.GetComponent<Interactable>().goRecipiente = goItemInteracted;
+                    goItemEquipped.GetComponent<Interactable>().bParented = true;
+                    goItemEquipped.transform.position = goItemInteracted.GetComponent<Cubo>().tLocationPoint.position;
+                    goItemEquipped.transform.rotation = goItemInteracted.GetComponent<Cubo>().tLocationPoint.rotation;
+                    goItemEquipped.transform.parent = goItemInteracted.transform;  
+                    goItemEquipped = null;
+                    bItemEquipped = false;
+                }
+            }
+        }
+
+
         //PuertaSimple
 
         if (goItemInteracted.GetComponent<PuertaSimple>())

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public string itemName;
     public bool bCatchable;
     public bool bInteractable;
+
+    public GameObject goRecipiente;
+    public bool bParented = false;
 }
