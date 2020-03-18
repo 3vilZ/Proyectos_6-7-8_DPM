@@ -71,7 +71,6 @@ public class PruebaGestion : MonoBehaviour
     public void CatchItem()
     {
         bItemEquipped = true;
-
         goItemEquipped.GetComponent<Rigidbody>().useGravity = false;
         goItemEquipped.GetComponent<Rigidbody>().isKinematic = true;
         goItemEquipped.transform.position = tHandPosition.position;
