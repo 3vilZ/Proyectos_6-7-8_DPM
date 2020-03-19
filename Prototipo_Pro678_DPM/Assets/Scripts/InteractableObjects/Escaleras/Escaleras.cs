@@ -33,7 +33,9 @@ public class Escaleras : Interactable
     {
         if (other.gameObject.tag == "Player")
         {
+            other.gameObject.GetComponent<CharacterController>().enabled = false;
             other.gameObject.transform.position = tPuntofinal.position;
+            other.gameObject.GetComponent<CharacterController>().enabled = true;
             other.GetComponent<PruebaPersonaje>().bEscaleras = false;
             other.GetComponent<PruebaGestion>().bInteracting = false;
             OnStairs();
