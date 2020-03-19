@@ -182,18 +182,43 @@ public class PruebaGestion : MonoBehaviour
             goItemInteracted.GetComponent<Escaleras>().OnStairs();
             pruebaPersonaje.bEscaleras = true;
         }
+
+        //Bicicleta
+        if (goItemInteracted.GetComponent<Bicicleta>())
+        {
+            bInteracting = true;
+            DropItem2();
+            GetComponent<CharacterController>().enabled = false;
+            GetComponent<Animator>().enabled = false;
+            transform.position = goItemInteracted.GetComponent<Bicicleta>().tPlayerSaddle.position;
+            transform.parent = goItemInteracted.transform;
+            goItemInteracted.GetComponent<Bicicleta>().bOnBicicle = true;
+        }
     }
 
     public void StopInteract()
     {
         //Escalera
-
         if (goItemInteracted.GetComponent<Escaleras>())
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 pruebaPersonaje.bEscaleras = false;
                 goItemInteracted.GetComponent<Escaleras>().OnStairs();
+                bInteracting = false;
+            }
+        }
+
+        //Bicicleta
+        if (goItemInteracted.GetComponent<Bicicleta>())
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                goItemInteracted.GetComponent<Bicicleta>().bOnBicicle = false;
+                transform.position = goItemInteracted.GetComponent<Bicicleta>().tPlayerDown.position;
+                transform.parent = null;
+                GetComponent<CharacterController>().enabled = true;
+                GetComponent<Animator>().enabled = true;
                 bInteracting = false;
             }
         }
