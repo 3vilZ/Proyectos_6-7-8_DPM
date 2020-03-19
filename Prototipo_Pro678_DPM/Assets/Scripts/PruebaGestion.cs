@@ -52,7 +52,15 @@ public class PruebaGestion : MonoBehaviour
 
                     if (goItemEquipped.GetComponent<Interactable>().bParented)
                     {
-                        goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>().goInsideItem = null;
+                        if(goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>())
+                        {
+                            goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>().goInsideItem = null;
+                        }
+                        else if (goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>())
+                        {
+                            goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>().goInsideItem = null;
+                        }
+
                         goItemEquipped.GetComponent<Interactable>().bParented = false;
                     }
 
@@ -61,6 +69,24 @@ public class PruebaGestion : MonoBehaviour
                 else if (hit.collider.gameObject.GetComponent<Interactable>().bInteractable)
                 {
                     goItemInteracted = hit.collider.gameObject;
+
+                    if (goItemInteracted.GetComponent<Interactable>().bParented)
+                    {
+                        if (goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>())
+                        {
+                            goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>().goInsideItem = null;
+                        }
+
+                        /*
+                        else if (goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>())
+                        {
+                            goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>().goInsideItem = null;
+                        }
+                        */
+
+                        goItemInteracted.GetComponent<Interactable>().bParented = false;
+                    }
+
                     InteractItem();
                 }
                 else if (!hit.collider.gameObject.GetComponent<Interactable>())
@@ -109,6 +135,22 @@ public class PruebaGestion : MonoBehaviour
                     goItemEquipped = null;
                     bItemEquipped = false;
                 }
+            }
+        }
+
+        //BiciBag
+        if (goItemInteracted.GetComponent<BiciBag>())
+        {
+            if(goItemEquipped != null && goItemInteracted.GetComponent<BiciBag>().goInsideItem == null)
+            {
+                goItemInteracted.GetComponent<BiciBag>().goInsideItem = goItemEquipped;
+                goItemEquipped.GetComponent<Interactable>().goRecipiente = goItemInteracted;
+                goItemEquipped.GetComponent<Interactable>().bParented = true;
+                goItemEquipped.transform.position = goItemInteracted.GetComponent<BiciBag>().tLocationPoint.position;
+                goItemEquipped.transform.rotation = goItemInteracted.GetComponent<BiciBag>().tLocationPoint.rotation;
+                goItemEquipped.transform.parent = goItemInteracted.transform;
+                goItemEquipped = null;
+                bItemEquipped = false;
             }
         }
 
@@ -193,6 +235,7 @@ public class PruebaGestion : MonoBehaviour
             transform.position = goItemInteracted.GetComponent<Bicicleta>().tPlayerSaddle.position;
             transform.parent = goItemInteracted.transform;
             goItemInteracted.GetComponent<Bicicleta>().bOnBicicle = true;
+            pruebaPersonaje.bBicycle = true;
         }
     }
 
@@ -220,6 +263,7 @@ public class PruebaGestion : MonoBehaviour
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<Animator>().enabled = true;
                 bInteracting = false;
+                pruebaPersonaje.bBicycle = false;
             }
         }
     }

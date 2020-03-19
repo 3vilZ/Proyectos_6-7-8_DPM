@@ -21,6 +21,7 @@ public class PruebaPersonaje : MonoBehaviour
     bool bIsGrounded;
 
     public bool bEscaleras = false;
+    public bool bBicycle = false;
 
     private void Awake()
     {
@@ -36,7 +37,10 @@ public class PruebaPersonaje : MonoBehaviour
         }
         else
         {
-            Moving();
+            if (!bBicycle)
+            {
+                Moving();
+            }
         }
     }
 
