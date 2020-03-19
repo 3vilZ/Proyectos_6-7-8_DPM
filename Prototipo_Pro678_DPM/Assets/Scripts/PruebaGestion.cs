@@ -166,7 +166,9 @@ public class PruebaGestion : MonoBehaviour
         if (goItemInteracted.GetComponent<PlataformaSimple>())
         {
             //transform.position = Vector3.MoveTowards(transform.position, goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position, 1);
-            gameObject.transform.position = goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position;
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = goItemInteracted.GetComponent<PlataformaSimple>().tPuntoSubida.position;
+            GetComponent<CharacterController>().enabled = true;
         }
 
         //Escalera
@@ -174,7 +176,9 @@ public class PruebaGestion : MonoBehaviour
         {
             bInteracting = true;
             DropItem2();
-            gameObject.transform.position = goItemInteracted.GetComponent<Escaleras>().tPuntoInicio.position;
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = goItemInteracted.GetComponent<Escaleras>().tPuntoInicio.position;
+            GetComponent<CharacterController>().enabled = true;
             goItemInteracted.GetComponent<Escaleras>().OnStairs();
             pruebaPersonaje.bEscaleras = true;
         }
