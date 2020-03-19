@@ -95,6 +95,6 @@ public class Bicicleta : Interactable
         Vector3 velocidadRotDeseada = new Vector3(0, velocidadRot * xInput, 0);
         velocidadRotActual = Vector3.MoveTowards(velocidadRotActual, velocidadRotDeseada, aceleracionRot * Time.deltaTime);
 
-        this.transform.Rotate(0, velocidadRotActual.y * Time.deltaTime, 0);
+        transform.Rotate(0, velocidadRotActual.y * Time.deltaTime, 0);
     }
 }

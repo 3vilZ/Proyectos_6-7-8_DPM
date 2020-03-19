@@ -1987,10 +1987,10 @@ MonoBehaviour:
   bOnBicicle: 0
   colInteract:
   - {fileID: 519718727}
-  velocidadMov: 10
+  velocidadMov: 20
   velocidadRot: 180
-  aceleracionMov: 10
-  aceleracionRot: 250
+  aceleracionMov: 20
+  aceleracionRot: 500
   fGravity: -12
   tGroundCheck: {fileID: 772059957}
   fGroundRadius: 0.5
