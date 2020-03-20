@@ -77,12 +77,10 @@ public class PruebaGestion : MonoBehaviour
                             goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>().goInsideItem = null;
                         }
 
-                        /*
-                        else if (goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>())
+                        else if (goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>())
                         {
-                            goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>().goInsideItem = null;
+                            goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>().goInsideItem = null;
                         }
-                        */
 
                         goItemInteracted.GetComponent<Interactable>().bParented = false;
                     }
