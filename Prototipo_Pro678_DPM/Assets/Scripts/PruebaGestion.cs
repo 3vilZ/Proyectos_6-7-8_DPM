@@ -60,6 +60,10 @@ public class PruebaGestion : MonoBehaviour
                         {
                             goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>().goInsideItem = null;
                         }
+                        else if (goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<PoleaCuerda>())
+                        {
+                            goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<PoleaCuerda>().goInsideItem = null;
+                        }
 
                         goItemEquipped.GetComponent<Interactable>().bParented = false;
                     }
@@ -80,6 +84,10 @@ public class PruebaGestion : MonoBehaviour
                         else if (goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>())
                         {
                             goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<BiciBag>().goInsideItem = null;
+                        }
+                        else if (goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<PoleaCuerda>())
+                        {
+                            goItemInteracted.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<PoleaCuerda>().goInsideItem = null;
                         }
 
                         goItemInteracted.GetComponent<Interactable>().bParented = false;
@@ -152,6 +160,36 @@ public class PruebaGestion : MonoBehaviour
             }
         }
 
+        //PoleaCuerda
+        if (goItemInteracted.GetComponent<PoleaCuerda>())
+        {
+            if (goItemEquipped.GetComponent<Cubo>() != null && goItemInteracted.GetComponent<PoleaCuerda>().goInsideItem == null)
+            {
+                goItemInteracted.GetComponent<PoleaCuerda>().goInsideItem = goItemEquipped;
+                goItemEquipped.GetComponent<Interactable>().goRecipiente = goItemInteracted;
+                goItemEquipped.GetComponent<Interactable>().bParented = true;
+                goItemEquipped.transform.position = goItemInteracted.GetComponent<PoleaCuerda>().tLocationPoint.position;
+                goItemEquipped.transform.rotation = goItemInteracted.GetComponent<PoleaCuerda>().tLocationPoint.rotation;
+                goItemEquipped.transform.parent = goItemInteracted.transform;
+                goItemEquipped = null;
+                bItemEquipped = false;
+            }
+        }
+        //PoleaMecanismo
+
+        if (goItemInteracted.GetComponent<PoleaMecanismo>())
+        {
+            if (!goItemInteracted.GetComponent<PoleaMecanismo>().bUp)
+            {
+                goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Up");
+                goItemInteracted.GetComponent<PoleaMecanismo>().bUp = true;
+            }
+            else
+            {
+                goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Down");
+                goItemInteracted.GetComponent<PoleaMecanismo>().bUp = false;
+            }
+        }
 
         //PuertaSimple
 
