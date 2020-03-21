@@ -33,6 +33,50 @@ public class TriggerTexto : MonoBehaviour
             {
                 gt.bTrigger4 = true;
             }
+            if (numberTrigger == 5)
+            {
+                gt.bTrigger5 = true;
+            }
+            if (numberTrigger == 6)
+            {
+                gt.bTrigger6 = true;
+            }
+            if (numberTrigger == 7)
+            {
+                gt.bTrigger7 = true;
+            }
+            if (numberTrigger == 8)
+            {
+                gt.bTrigger8 = true;
+            }
+            if (numberTrigger == 9)
+            {
+                gt.bTrigger9 = true;
+            }
+            if (numberTrigger == 10)
+            {
+                gt.bTrigger10 = true;
+            }
+            if (numberTrigger == 11)
+            {
+                gt.bTrigger11 = true;
+            }
+            if (numberTrigger == 12)
+            {
+                gt.bTrigger12 = true;
+            }
+            if (numberTrigger == 13)
+            {
+                gt.bTrigger13 = true;
+            }
+            if (numberTrigger == 14)
+            {
+                gt.bTrigger14 = true;
+            }
+            if (numberTrigger == 15)
+            {
+                gt.bTrigger15 = true;
+            }
 
             Destroy(gameObject);
         }

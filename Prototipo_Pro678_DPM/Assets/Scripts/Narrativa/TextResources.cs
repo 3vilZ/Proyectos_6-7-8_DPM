@@ -25,5 +25,60 @@ namespace RTS
         public static string Four_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
         public static string Four_2 { get { return ""; } }
         public static string Four_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Five_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Five_2 { get { return ""; } }
+        public static string Five_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Six_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Six_2 { get { return ""; } }
+        public static string Six_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Seven_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Seven_2 { get { return ""; } }
+        public static string Seven_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Eight_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Eight_2 { get { return ""; } }
+        public static string Eight_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Nine_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Nine_2 { get { return ""; } }
+        public static string Nine_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Ten_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Ten_2 { get { return ""; } }
+        public static string Ten_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Eleven_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Eleven_2 { get { return ""; } }
+        public static string Eleven_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Twelve_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Twelve_2 { get { return ""; } }
+        public static string Twelve_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Thirteen_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Thirteen_2 { get { return ""; } }
+        public static string Thirteen_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Fourteen_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Fourteen_2 { get { return ""; } }
+        public static string Fourteen_3 { get { return ""; } }
+
+        //CONVERSACION1 NICK SE PRESENTA
+        public static string Fiveteen_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        public static string Fiveteen_2 { get { return ""; } }
+        public static string Fiveteen_3 { get { return ""; } }
     }
 }
