@@ -27,6 +27,17 @@ public class GestionTextos : MonoBehaviour
     public bool bTrigger2 = false;
     public bool bTrigger3 = false;
     public bool bTrigger4 = false;
+    public bool bTrigger5 = false;
+    public bool bTrigger6 = false;
+    public bool bTrigger7 = false;
+    public bool bTrigger8 = false;
+    public bool bTrigger9 = false;
+    public bool bTrigger10 = false;
+    public bool bTrigger11 = false;
+    public bool bTrigger12 = false;
+    public bool bTrigger13= false;
+    public bool bTrigger14 = false;
+    public bool bTrigger15 = false;
 
     bool bTalking;
     float fTimer;
