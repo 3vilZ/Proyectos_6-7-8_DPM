@@ -21,18 +21,18 @@ namespace RTS
         public static string Three_2 { get { return "KENN: Bueno, como te iba diciendo, soy el Guardia Civil de Primera Kenn Wensly"; } }
         public static string Three_3 { get { return "KENN: El Sargento Martínez me ha ordenado que te ayude en la investigación… "; } }
 
-        //CONVERSACION1 NICK SE PRESENTA
-        public static string Four_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        //CONVERSACION1 NICK SE PRESENTA TIMIDAMENTE
+        public static string Four_1 { get { return "PEPE: Bueno pues yo… soy Pepe… del Cuartel de Rioseco… (tímidamente)"; } }
         public static string Four_2 { get { return ""; } }
         public static string Four_3 { get { return ""; } }
 
-        //CONVERSACION1 NICK SE PRESENTA
-        public static string Five_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
-        public static string Five_2 { get { return ""; } }
+        //CONVERSACION1 KENN SE TE VACILA
+        public static string Five_1 { get { return "KENN: Me habían dicho que no eras muy espabilao pero… (añade por lo bajini)"; } }
+        public static string Five_2 { get { return "KENN: Se un poco formal por dios, esto es serio"; } }
         public static string Five_3 { get { return ""; } }
 
-        //CONVERSACION1 NICK SE PRESENTA
-        public static string Six_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
+        //CONVERSACION1 NICK SE PRESENTA FORMALMENTE
+        public static string Six_1 { get { return "PEPE: Si…Disculpa Kenn… Soy Pepe de las Heras, Guardia Civil de Rioseco, numero de registro 663… (Interrumpe Kenn)"; } }
         public static string Six_2 { get { return ""; } }
         public static string Six_3 { get { return ""; } }
 

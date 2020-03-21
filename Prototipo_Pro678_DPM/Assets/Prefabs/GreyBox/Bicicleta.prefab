@@ -307,7 +307,7 @@ MonoBehaviour:
   - {fileID: 5361266915083868579}
   - {fileID: 5361266915894390708}
   - {fileID: 5361266915533760410}
-  velocidadMov: 20
+  velocidadMov: 18
   velocidadRot: 180
   aceleracionMov: 20
   aceleracionRot: 500
