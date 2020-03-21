@@ -14,7 +14,7 @@ public class TriggerTexto : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Bici")
         {
             //Martiiiin
             if (numberTrigger == 1)
