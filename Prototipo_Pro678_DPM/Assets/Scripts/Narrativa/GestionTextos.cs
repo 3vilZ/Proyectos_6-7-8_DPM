@@ -14,7 +14,7 @@ public class GestionTextos : MonoBehaviour
     string[] strConversation1 = new string[] {TextResources.One_1, TextResources.One_2, TextResources.One_3, "NULL"};
     string[] strConversation2 = new string[] { TextResources.Two_1, TextResources.Two_2, TextResources.Two_3, "NULL" };
     string[] strConversation3 = new string[] { TextResources.Three_1, TextResources.Three_2, TextResources.Three_3, "NULL" };
-    string[] strConversation4 = new string[] { TextResources.Four_1, TextResources.Four_2, TextResources.Four_3, "NULL" };
+    string[] strConversation4 = new string[] { TextResources.Four_1, "NULL" };
 
     //Martiiiin
     int number1 = 0;
