@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerTexto : MonoBehaviour
 {
     public int numberTrigger;
+    public bool bIntTextIncomming;
     GestionTextos gt;
 
     private void Start()
@@ -17,6 +18,11 @@ public class TriggerTexto : MonoBehaviour
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Bici")
         {
             //Martiiiin
+            if(bIntTextIncomming)
+            {
+                gt.bWillSelect = true;
+            }
+
             if (numberTrigger == 1)
             {
                 gt.bTrigger1 = true;

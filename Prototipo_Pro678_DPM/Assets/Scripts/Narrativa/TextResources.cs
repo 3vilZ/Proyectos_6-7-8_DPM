@@ -80,5 +80,12 @@ namespace RTS
         public static string Fiveteen_1 { get { return "PEPE (tímidamente): Bueno pues yo… soy Pepe… del Cuartel de Rioseco…"; } }
         public static string Fiveteen_2 { get { return ""; } }
         public static string Fiveteen_3 { get { return ""; } }
+
+        //INTERACTIVE
+        //INTERACTIVE
+        //INTERACTIVE
+        public static string Int1_Title { get { return "Sufres retraso?"; } }
+        public static string Int1_Ans1 { get { return "Si"; } }
+        public static string Int1_Ans2 { get { return "También"; } }
     }
 }

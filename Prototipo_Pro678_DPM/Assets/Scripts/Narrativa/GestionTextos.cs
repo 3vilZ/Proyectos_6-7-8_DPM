@@ -2,20 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using RTS;
 
 public class GestionTextos : MonoBehaviour
 {
-    public GameObject goPanel;
-    public Text txtText;
+    
+    public GameObject goPanelNormal;
+    public GameObject goPanelInteractive;
+    public Button Button1;
+    public Button Button2;
+    public Button currentButton;
+    public Text TextNormal;
+    public Text TextInteractive;
+    public Text TextButton1;
+    public Text TextButton2;
     public float TiemposTexto = 3;
 
     //Martiiiin
-    string[] strConversation1 = new string[] {TextResources.One_1, TextResources.One_2, TextResources.One_3, "NULL"};
+    string[] strConversation1 = new string[] { TextResources.One_1, TextResources.One_2, TextResources.One_3, "NULL"};
     string[] strConversation2 = new string[] { TextResources.Two_1, TextResources.Two_2, TextResources.Two_3, "NULL" };
     string[] strConversation3 = new string[] { TextResources.Three_1, TextResources.Three_2, TextResources.Three_3, "NULL" };
     string[] strConversation4 = new string[] { TextResources.Four_1, "NULL" };
 
+    string[] strInteraction1 = new string[] { TextResources.Int1_Title, TextResources.Int1_Ans1, TextResources.Int1_Ans2, "NULL" };
     //Martiiiin
     int number1 = 0;
     int number2 = 0;
@@ -39,7 +49,11 @@ public class GestionTextos : MonoBehaviour
     public bool bTrigger14 = false;
     public bool bTrigger15 = false;
 
+
+
     bool bTalking;
+    public bool bWillSelect;
+    bool bSelecting;
     float fTimer;
 
     
@@ -47,22 +61,34 @@ public class GestionTextos : MonoBehaviour
     void Start()
     {
         fTimer = TiemposTexto;
+        Button1.interactable = false;
+        Button2.interactable = false;
+        currentButton = Button1;
+        currentButton.interactable = true;
     }
 
     void Update()
     {
         Timer();
+        Selections();
         Triggers();
         
         
 
         if (bTalking)
         {
-            goPanel.SetActive(true);
+            goPanelInteractive.SetActive(false);
+            goPanelNormal.SetActive(true);
+        }
+        else if (bSelecting)
+        {
+            goPanelNormal.SetActive(false);
+            goPanelInteractive.SetActive(true);
         }
         else
         {
-            goPanel.SetActive(false);
+            goPanelNormal.SetActive(false);
+            goPanelInteractive.SetActive(false);
         }
     }
 
@@ -97,6 +123,33 @@ public class GestionTextos : MonoBehaviour
         }
     }
 
+    private void Selections()
+    {
+        if(bSelecting)
+        {
+            TextInteractive.text = strInteraction1[0];
+            TextButton1.text = strInteraction1[1];
+            TextButton2.text = strInteraction1[2];
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                if (currentButton == Button1)
+                {
+                    currentButton.interactable = false;
+                    currentButton = Button2;
+                    currentButton.interactable = true;
+                    EventSystem.current.SetSelectedGameObject(Button2.gameObject);
+                }
+                else
+                {
+                    currentButton.interactable = false;
+                    currentButton = Button1;
+                    currentButton.interactable = true;
+                }
+            }
+        }
+    }
+
     private void Triggers()
     {
         //Martiiiin
@@ -104,13 +157,20 @@ public class GestionTextos : MonoBehaviour
         {
             bTalking = true;
 
-            txtText.text = strConversation1[number1];
+            TextNormal.text = strConversation1[number1];
 
             if((number1 + 1) >= strConversation1.Length)
             {
                 
                 fTimer = TiemposTexto;
                 bTalking = false;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
                 bTrigger1 = false;
             }
         }
@@ -118,7 +178,7 @@ public class GestionTextos : MonoBehaviour
         {
             bTalking = true;
 
-            txtText.text = strConversation2[number2];
+            TextNormal.text = strConversation2[number2];
 
             if ((number2 + 1) >= strConversation2.Length)
             {
@@ -132,7 +192,7 @@ public class GestionTextos : MonoBehaviour
         {
             bTalking = true;
 
-            txtText.text = strConversation3[number3];
+            TextNormal.text = strConversation3[number3];
 
             if ((number3 + 1) >= strConversation3.Length)
             {
@@ -146,7 +206,7 @@ public class GestionTextos : MonoBehaviour
         {
             bTalking = true;
 
-            txtText.text = strConversation4[number4];
+            TextNormal.text = strConversation4[number4];
 
             if ((number4 + 1) >= strConversation4.Length)
             {
