@@ -29,6 +29,10 @@ public class TriggerTexto : MonoBehaviour
             {
                 gt.bTrigger3 = true;
             }
+            if (numberTrigger == 4)
+            {
+                gt.bTrigger4 = true;
+            }
 
             Destroy(gameObject);
         }
