@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using RTS;
 
 public class GestionTextos : MonoBehaviour
@@ -26,6 +25,7 @@ public class GestionTextos : MonoBehaviour
     string[] strConversation4 = new string[] { TextResources.Four_1, "NULL" };
 
     string[] strInteraction1 = new string[] { TextResources.Int1_Title, TextResources.Int1_Ans1, TextResources.Int1_Ans2, "NULL" };
+
     //Martiiiin
     int number1 = 0;
     int number2 = 0;
@@ -56,15 +56,12 @@ public class GestionTextos : MonoBehaviour
     bool bSelecting;
     float fTimer;
 
+    bool bButtonControl = true;
     
 
     void Start()
     {
         fTimer = TiemposTexto;
-        Button1.interactable = false;
-        Button2.interactable = false;
-        currentButton = Button1;
-        currentButton.interactable = true;
     }
 
     void Update()
@@ -131,23 +128,35 @@ public class GestionTextos : MonoBehaviour
             TextButton1.text = strInteraction1[1];
             TextButton2.text = strInteraction1[2];
 
+            if(bButtonControl)
+            {
+                currentButton = Button1;
+                currentButton.Select();
+                bButtonControl = false;
+            }
+
             if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetAxis("Mouse ScrollWheel") < 0)
             {
                 if (currentButton == Button1)
                 {
-                    currentButton.interactable = false;
                     currentButton = Button2;
-                    currentButton.interactable = true;
-                    EventSystem.current.SetSelectedGameObject(Button2.gameObject);
+                    currentButton.Select();
+                    //EventSystem.current.SetSelectedGameObject(Button2.gameObject);
                 }
                 else
                 {
-                    currentButton.interactable = false;
                     currentButton = Button1;
-                    currentButton.interactable = true;
+                    currentButton.Select();
+                    //EventSystem.current.SetSelectedGameObject(Button1.gameObject);
                 }
             }
+            currentButton.onClick.AddListener(ClickClick);
         }
+    }
+
+    private void ClickClick()
+    {
+        Debug.Log("wawawawawawawawa");
     }
 
     private void Triggers()
