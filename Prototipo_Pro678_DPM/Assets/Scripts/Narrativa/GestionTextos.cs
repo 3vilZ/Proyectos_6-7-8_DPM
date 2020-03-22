@@ -17,6 +17,7 @@ public class GestionTextos : MonoBehaviour
     public Text TextButton1;
     public Text TextButton2;
     public float TiemposTexto = 3;
+    public float TiempostextoExtendido = 5;
 
     //Martiiiin
     string[] strConversation1 = new string[] { TextResources.One_1, TextResources.One_2, TextResources.One_3, "NULL"};
@@ -181,8 +182,16 @@ public class GestionTextos : MonoBehaviour
                 {
                     number15++;
                 }
-               
-                fTimer = TiemposTexto;
+
+                if (bTrigger9 || bTrigger11)
+                {
+                    fTimer = TiempostextoExtendido;
+                }
+                else
+                {
+                    fTimer = TiemposTexto;
+                }
+                
             }
         }
     }
@@ -383,7 +392,7 @@ public class GestionTextos : MonoBehaviour
             if ((number8 + 1) >= strConversation8.Length)
             {
                 bTalking = false;
-                fTimer = TiemposTexto;
+                fTimer = TiempostextoExtendido;
 
                 if (bWillSelect)
                 {
@@ -423,7 +432,7 @@ public class GestionTextos : MonoBehaviour
             if ((number10 + 1) >= strConversation10.Length)
             {
                 bTalking = false;
-                fTimer = TiemposTexto;
+                fTimer = TiempostextoExtendido;
 
                 if (bWillSelect)
                 {
