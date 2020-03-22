@@ -38,15 +38,12 @@ public class InkScript : MonoBehaviour
             Text choiceText = buttonPrefab.GetComponentInChildren<Text>();
             choiceText.text = choice.text;
 
-            choiceButton.onClick.AddListener(delegate 
+            choiceButton.onClick.AddListener(delegate
             {
                 chooseStoryChoice(choice);
             });
-
-            
-
         }
-        chooseStoryChoice(story.currentChoices[0]);
+        //chooseStoryChoice(story.currentChoices[0]);
     }
 
     void eraseUI()
