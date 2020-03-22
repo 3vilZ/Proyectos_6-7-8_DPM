@@ -150,13 +150,18 @@ public class GestionTextos : MonoBehaviour
                     //EventSystem.current.SetSelectedGameObject(Button1.gameObject);
                 }
             }
-            currentButton.onClick.AddListener(ClickClick);
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                bTrigger2 = true;
+                bSelecting = false;
+            }
         }
     }
 
     private void ClickClick()
     {
         Debug.Log("wawawawawawawawa");
+        bSelecting = false;
     }
 
     private void Triggers()
@@ -170,9 +175,8 @@ public class GestionTextos : MonoBehaviour
 
             if((number1 + 1) >= strConversation1.Length)
             {
-                
-                fTimer = TiemposTexto;
                 bTalking = false;
+                fTimer = TiemposTexto;
 
                 if (bWillSelect)
                 {

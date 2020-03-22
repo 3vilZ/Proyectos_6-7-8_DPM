@@ -10670,6 +10670,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelNormal
       objectReference: {fileID: 0}
+    - target: {fileID: 3683421547617105719, guid: 03e7553fe4a386942bbb85d6dcda2b0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3683421548189011729, guid: 03e7553fe4a386942bbb85d6dcda2b0e,
         type: 3}
       propertyPath: m_Name
