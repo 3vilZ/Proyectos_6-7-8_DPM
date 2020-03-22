@@ -43,7 +43,7 @@ public class InkScript : MonoBehaviour
                 chooseStoryChoice(choice);
             });
         }
-        //chooseStoryChoice(story.currentChoices[0]);
+        chooseStoryChoice(story.currentChoices[0]);
     }
 
     void eraseUI()

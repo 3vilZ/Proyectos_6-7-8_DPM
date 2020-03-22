@@ -20,9 +20,20 @@ public class GestionTextos : MonoBehaviour
 
     //Martiiiin
     string[] strConversation1 = new string[] { TextResources.One_1, TextResources.One_2, TextResources.One_3, "NULL"};
-    string[] strConversation2 = new string[] { TextResources.Two_1, TextResources.Two_2, TextResources.Two_3, "NULL" };
+    string[] strConversation2 = new string[] { TextResources.Two_1, TextResources.Two_2, "NULL" };
     string[] strConversation3 = new string[] { TextResources.Three_1, TextResources.Three_2, TextResources.Three_3, "NULL" };
     string[] strConversation4 = new string[] { TextResources.Four_1, "NULL" };
+    string[] strConversation5 = new string[] { TextResources.Five_1, TextResources.Five_2, "NULL" };
+    string[] strConversation6 = new string[] { TextResources.Six_1, "NULL" };
+    string[] strConversation7 = new string[] { TextResources.Seven_1, TextResources.Seven_2, TextResources.Seven_3, "NULL" };
+    string[] strConversation8 = new string[] { TextResources.Eight_1,  "NULL" };
+    string[] strConversation9 = new string[] { TextResources.Nine_1, TextResources.Nine_2, TextResources.Nine_3, "NULL" };
+    string[] strConversation10 = new string[] { TextResources.Ten_1,  "NULL" };
+    string[] strConversation11 = new string[] { TextResources.Eleven_1, TextResources.Eleven_2, TextResources.Eleven_3, TextResources.Eleven_4, TextResources.Eleven_5, TextResources.Eleven_6, TextResources.Eleven_7, "NULL" };
+    string[] strConversation12 = new string[] { TextResources.Twelve_3, TextResources.Twelve_2, TextResources.Twelve_3, "NULL" };
+    string[] strConversation13 = new string[] { TextResources.Thirteen_1, TextResources.Thirteen_2, TextResources.Thirteen_3, "NULL" };
+    string[] strConversation14 = new string[] { TextResources.Fourteen_1, TextResources.Fourteen_2, TextResources.Fourteen_3, "NULL" };
+    string[] strConversation15 = new string[] { TextResources.Fiveteen_1, TextResources.Fiveteen_2, TextResources.Fiveteen_3, "NULL" };
 
     string[] strInteraction1 = new string[] { TextResources.Int1_Title, TextResources.Int1_Ans1, TextResources.Int1_Ans2, "NULL" };
 
@@ -31,6 +42,18 @@ public class GestionTextos : MonoBehaviour
     int number2 = 0;
     int number3 = 0;
     int number4 = 0;
+    int number5 = 0;
+    int number6 = 0;
+    int number7 = 0;
+    int number8 = 0;
+    int number9 = 0;
+    int number10 = 0;
+    int number11 = 0;
+    int number12 = 0;
+    int number13 = 0;
+    int number14 = 0;
+    int number15 = 0;
+    
 
     //Martiiiin
     public bool bTrigger1 = false;
@@ -114,7 +137,51 @@ public class GestionTextos : MonoBehaviour
                 {
                     number4++;
                 }
-
+                if (bTrigger5)
+                {
+                    number5++;
+                }
+                if (bTrigger6)
+                {
+                    number6++;
+                }
+                if (bTrigger7)
+                {
+                    number7++;
+                }
+                if (bTrigger8)
+                {
+                    number8++;
+                }
+                if (bTrigger9)
+                {
+                    number9++;
+                }
+                if (bTrigger10)
+                {
+                    number10++;
+                }
+                if (bTrigger11)
+                {
+                    number11++;
+                }
+                if (bTrigger12)
+                {
+                    number12++;
+                }
+                if (bTrigger13)
+                {
+                    number13++;
+                }
+                if (bTrigger14)
+                {
+                    number14++;
+                }
+                if (bTrigger15)
+                {
+                    number15++;
+                }
+               
                 fTimer = TiemposTexto;
             }
         }
@@ -152,7 +219,7 @@ public class GestionTextos : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                bTrigger2 = true;
+                bTrigger11 = true;
                 bSelecting = false;
             }
         }
@@ -195,9 +262,15 @@ public class GestionTextos : MonoBehaviour
 
             if ((number2 + 1) >= strConversation2.Length)
             {
-                
-                fTimer = TiemposTexto;
                 bTalking = false;
+                fTimer = TiemposTexto;
+                
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
                 bTrigger2 = false;
             }
         }
@@ -209,9 +282,15 @@ public class GestionTextos : MonoBehaviour
 
             if ((number3 + 1) >= strConversation3.Length)
             {
-
-                fTimer = TiemposTexto;
                 bTalking = false;
+                fTimer = TiemposTexto;
+                
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
                 bTrigger3 = false;
             }
         }
@@ -223,10 +302,236 @@ public class GestionTextos : MonoBehaviour
 
             if ((number4 + 1) >= strConversation4.Length)
             {
-
-                fTimer = TiemposTexto;
                 bTalking = false;
+                fTimer = TiemposTexto;
+                
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
                 bTrigger4 = false;
+            }
+        }
+        if (bTrigger5)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation5[number5];
+
+            if ((number5 + 1) >= strConversation5.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger5 = false;
+            }
+        }
+        if (bTrigger6)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation6[number6];
+
+            if ((number6 + 1) >= strConversation6.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger6 = false;
+            }
+        }
+        if (bTrigger7)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation7[number7];
+
+            if ((number7 + 1) >= strConversation7.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger7 = false;
+            }
+        }
+        if (bTrigger8)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation8[number8];
+
+            if ((number8 + 1) >= strConversation8.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger8 = false;
+            }
+        }
+        if (bTrigger9)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation9[number9];
+
+            if ((number9 + 1) >= strConversation9.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger9 = false;
+            }
+        }
+        if (bTrigger10)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation10[number10];
+
+            if ((number10 + 1) >= strConversation10.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger10 = false;
+            }
+        }
+        if (bTrigger11)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation11[number11];
+
+            if ((number11 + 1) >= strConversation11.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger11 = false;
+            }
+        }
+        if (bTrigger12)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation12[number12];
+
+            if ((number12 + 1) >= strConversation12.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger12 = false;
+            }
+        }
+        if (bTrigger13)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation13[number13];
+
+            if ((number13 + 1) >= strConversation13.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger13 = false;
+            }
+        }
+        if (bTrigger14)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation6[number14];
+
+            if ((number14 + 1) >= strConversation14.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger14 = false;
+            }
+        }
+        if (bTrigger15)
+        {
+            bTalking = true;
+
+            TextNormal.text = strConversation15[number15];
+
+            if ((number15 + 1) >= strConversation15.Length)
+            {
+                bTalking = false;
+                fTimer = TiemposTexto;
+
+                if (bWillSelect)
+                {
+                    bSelecting = true;
+                    bWillSelect = false;
+                }
+
+                bTrigger15 = false;
             }
         }
     }
