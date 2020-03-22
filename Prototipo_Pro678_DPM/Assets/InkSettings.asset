@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: InkSettings
   m_EditorClassIdentifier: 
   templateFile: {fileID: 0}
-  defaultJsonAssetPath: {fileID: 0}
+  defaultJsonAssetPath: {fileID: 102900000, guid: eda32d90e49b5dd49b8702670efc3e3b,
+    type: 3}
   compileAutomatically: 1
   delayInPlayMode: 1
   handleJSONFilesAutomatically: 1

@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391093955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f0b5bd7d2da914fa15dccee76b253b, type: 3}
+  m_Script: {fileID: 11500000, guid: 223bc5bb15f981e4bad2125e4cb9ab30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: fb858a68276f5d54baaf7e74ae6dd66a, type: 3}
@@ -1895,11 +1895,11 @@ MonoBehaviour:
     m_Right: 30
     m_Top: 30
     m_Bottom: 30
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
+  m_ChildAlignment: 7
+  m_Spacing: -700
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
