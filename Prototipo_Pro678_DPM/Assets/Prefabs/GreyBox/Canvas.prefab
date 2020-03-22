@@ -337,10 +337,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42aa131206de3c4ebf419e146b20c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goPanel: {fileID: 3683421547617105719}
-  txtText: {fileID: 3683421546958980811}
+  goPanelNormal: {fileID: 0}
+  goPanelInteractive: {fileID: 0}
+  Button1: {fileID: 0}
+  Button2: {fileID: 0}
+  currentButton: {fileID: 0}
+  TextNormal: {fileID: 0}
+  TextInteractive: {fileID: 0}
+  TextButton1: {fileID: 0}
+  TextButton2: {fileID: 0}
   TiemposTexto: 3
   bTrigger1: 0
   bTrigger2: 0
   bTrigger3: 0
   bTrigger4: 0
+  bTrigger5: 0
+  bTrigger6: 0
+  bTrigger7: 0
+  bTrigger8: 0
+  bTrigger9: 0
+  bTrigger10: 0
+  bTrigger11: 0
+  bTrigger12: 0
+  bTrigger13: 0
+  bTrigger14: 0
+  bTrigger15: 0
+  bWillSelect: 0
