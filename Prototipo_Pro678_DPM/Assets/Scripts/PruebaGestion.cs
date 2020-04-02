@@ -261,6 +261,18 @@ public class PruebaGestion : MonoBehaviour
             pruebaPersonaje.bEscaleras = true;
         }
 
+        //Tablon
+        if (goItemInteracted.GetComponent<Tablon>() && goItemEquipped.GetComponent<Hacha>() != null)
+        {
+            goItemInteracted.GetComponent<Tablon>().DestroyPlanks();
+        }
+
+        //ArbolCaido
+        if(goItemInteracted.GetComponent<ArbolCaido>() && goItemEquipped.GetComponent<Hacha>() != null)
+        {
+            goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Destru");
+        }
+
         //Bicicleta
         if (goItemInteracted.GetComponent<Bicicleta>())
         {
