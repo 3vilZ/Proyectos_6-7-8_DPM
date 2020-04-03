@@ -265,12 +265,14 @@ public class PruebaGestion : MonoBehaviour
         if (goItemInteracted.GetComponent<Tablon>() && goItemEquipped.GetComponent<Hacha>() != null)
         {
             goItemInteracted.GetComponent<Tablon>().DestroyPlanks();
+            pruebaPersonaje.AxeAnim();
         }
 
         //ArbolCaido
         if(goItemInteracted.GetComponent<ArbolCaido>() && goItemEquipped.GetComponent<Hacha>() != null)
         {
             goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Destru");
+            pruebaPersonaje.AxeAnim();
         }
 
         //Bicicleta
