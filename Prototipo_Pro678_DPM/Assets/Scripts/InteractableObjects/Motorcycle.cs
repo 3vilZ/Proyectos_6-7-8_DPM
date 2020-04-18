@@ -69,7 +69,7 @@ public class Motorcycle : MonoBehaviour
         if (Mathf.Abs(rearWheel.rpm) > 10000)
         {
             rearWheel.motorTorque = 0.0f;
-            rearWheel.brakeTorque = ms_Rigidbody.mass * 5;
+            //rearWheel.brakeTorque = ms_Rigidbody.mass * 5;
         }
         //
         if (rbVelocityMagnitude < 1.0f && Mathf.Abs(verticalInput) < 0.1f)
@@ -132,7 +132,7 @@ public class Motorcycle : MonoBehaviour
         frontWheel.wheelDampingRate = rearWheel.wheelDampingRate = 0.75f;
         frontWheel.suspensionDistance = rearWheel.suspensionDistance = 0.35f;
         frontWheel.forceAppPointDistance = rearWheel.forceAppPointDistance = 0;
-
+  
         //spring
         JointSpring suspensionSpringg = new JointSpring();
         suspensionSpringg.spring = 15000;
