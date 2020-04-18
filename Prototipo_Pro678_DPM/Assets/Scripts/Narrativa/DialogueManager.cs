@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour {
     private Queue<AudioConfig> archivosAudio;
 
     AudioConfig audioConfig;
+    bool bTalking = false;
 
     
 
@@ -80,6 +81,7 @@ public class DialogueManager : MonoBehaviour {
     public void StartConversation(Dialogue dialogue)
     {
         dialogueText.enabled = true;
+        bTalking = true;
         archivosAudio.Clear();
 
         foreach (AudioConfig aC in dialogue.audioConfigs)
@@ -122,14 +124,19 @@ public class DialogueManager : MonoBehaviour {
                 DisplayNextSentence();
             }
         }
-        else
+        else if (bTalking && archivosAudio.Count <= 0)
         {
-            EndDialogue();
+            if (!audioConfig.source.isPlaying)
+            {
+                EndDialogue();
+            }
+                
         }
     }
 
     void EndDialogue()
     {
         dialogueText.enabled = false;
+        bTalking = false;
     }
 }
