@@ -7,10 +7,10 @@ public class AudioConfig
     public AudioClip clip;
 
     [Range(0, 1)]
-    public float volume;
+    public float volume = 1;
 
     [Range(0.1f, 3f)]
-    public float pitch;
+    public float pitch = 1;
 
     public bool loop;
 
