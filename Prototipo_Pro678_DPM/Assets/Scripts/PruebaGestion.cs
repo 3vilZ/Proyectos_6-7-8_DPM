@@ -294,8 +294,8 @@ public class PruebaGestion : MonoBehaviour
             bInteracting = true;
             DropItem2();
             GetComponent<CharacterController>().enabled = false;
-            GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<Rigidbody>().isKinematic = true;
+            //GetComponent<Rigidbody>().useGravity = false;
+            //GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Animator>().enabled = false;
             transform.position = goItemInteracted.GetComponent<BiciWheel>().tPlayerSaddle.position;
             transform.parent = goItemInteracted.transform;
@@ -342,8 +342,8 @@ public class PruebaGestion : MonoBehaviour
                 transform.parent = null;
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<Animator>().enabled = true;
-                GetComponent<Rigidbody>().useGravity = true;
-                GetComponent<Rigidbody>().isKinematic = false;
+                //GetComponent<Rigidbody>().useGravity = true;
+                //GetComponent<Rigidbody>().isKinematic = false;
                 bInteracting = false;
                 pruebaPersonaje.bBicycle = false;
             }
