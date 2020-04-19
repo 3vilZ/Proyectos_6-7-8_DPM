@@ -261,6 +261,20 @@ public class PruebaGestion : MonoBehaviour
             pruebaPersonaje.bEscaleras = true;
         }
 
+        //Tablon
+        if (goItemInteracted.GetComponent<Tablon>() && goItemEquipped.GetComponent<Hacha>() != null)
+        {
+            goItemInteracted.GetComponent<Tablon>().DestroyPlanks();
+            pruebaPersonaje.AxeAnim();
+        }
+
+        //ArbolCaido
+        if(goItemInteracted.GetComponent<ArbolCaido>() && goItemEquipped.GetComponent<Hacha>() != null)
+        {
+            goItemInteracted.GetComponentInParent<Animator>().SetTrigger("Destru");
+            pruebaPersonaje.AxeAnim();
+        }
+
         //Bicicleta
         if (goItemInteracted.GetComponent<Bicicleta>())
         {
@@ -271,6 +285,21 @@ public class PruebaGestion : MonoBehaviour
             transform.position = goItemInteracted.GetComponent<Bicicleta>().tPlayerSaddle.position;
             transform.parent = goItemInteracted.transform;
             goItemInteracted.GetComponent<Bicicleta>().bOnBicicle = true;
+            pruebaPersonaje.bBicycle = true;
+        }
+
+        //BiciWheel
+        if (goItemInteracted.GetComponent<BiciWheel>())
+        {
+            bInteracting = true;
+            DropItem2();
+            GetComponent<CharacterController>().enabled = false;
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Animator>().enabled = false;
+            transform.position = goItemInteracted.GetComponent<BiciWheel>().tPlayerSaddle.position;
+            transform.parent = goItemInteracted.transform;
+            goItemInteracted.GetComponent<BiciWheel>().bOnBicicle = true;
             pruebaPersonaje.bBicycle = true;
         }
     }
@@ -298,6 +327,23 @@ public class PruebaGestion : MonoBehaviour
                 transform.parent = null;
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<Animator>().enabled = true;
+                bInteracting = false;
+                pruebaPersonaje.bBicycle = false;
+            }
+        }
+
+        //BiciWheel
+        if (goItemInteracted.GetComponent<BiciWheel>())
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                goItemInteracted.GetComponent<BiciWheel>().bOnBicicle = false;
+                transform.position = goItemInteracted.GetComponent<BiciWheel>().tPlayerDown.position;
+                transform.parent = null;
+                GetComponent<CharacterController>().enabled = true;
+                GetComponent<Animator>().enabled = true;
+                GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Rigidbody>().isKinematic = false;
                 bInteracting = false;
                 pruebaPersonaje.bBicycle = false;
             }

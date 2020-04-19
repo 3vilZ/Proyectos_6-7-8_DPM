@@ -104,4 +104,8 @@ public class PruebaPersonaje : MonoBehaviour
             cmpAnim.SetBool("Walking", false);
         }
     }
+    public void AxeAnim()
+    {
+        cmpAnim.SetTrigger("AxeHit");
+    }
 }
