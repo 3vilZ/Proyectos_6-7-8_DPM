@@ -6,7 +6,9 @@ public class Interactable : MonoBehaviour
 {
     public bool bCatchable;
     public bool bInteractable;
+    
 
     public GameObject goRecipiente;
     public bool bParented = false;
+    public bool bDialogue;
 }

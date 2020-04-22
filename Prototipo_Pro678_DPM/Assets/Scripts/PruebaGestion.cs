@@ -50,6 +50,11 @@ public class PruebaGestion : MonoBehaviour
                 {
                     goItemEquipped = hit.collider.gameObject;
 
+                    if(goItemEquipped.GetComponent<Interactable>().bDialogue)
+                    {
+                        goItemEquipped.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    }
+
                     if (goItemEquipped.GetComponent<Interactable>().bParented)
                     {
                         if(goItemEquipped.GetComponent<Interactable>().goRecipiente.gameObject.GetComponent<Cubo>())
@@ -73,6 +78,11 @@ public class PruebaGestion : MonoBehaviour
                 else if (hit.collider.gameObject.GetComponent<Interactable>().bInteractable)
                 {
                     goItemInteracted = hit.collider.gameObject;
+
+                    if (goItemInteracted.GetComponent<Interactable>().bDialogue)
+                    {
+                        goItemInteracted.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    }
 
                     if (goItemInteracted.GetComponent<Interactable>().bParented)
                     {
