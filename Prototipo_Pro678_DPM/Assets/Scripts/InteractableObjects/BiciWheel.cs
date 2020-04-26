@@ -114,9 +114,9 @@ public class BiciWheel : Interactable
 
         */
 
-        if (Vector3.Angle(Vector3.up, transform.up) > 20)
+        if (Vector3.Angle(Vector3.up, transform.up) > 10)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 2);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 5);
         }
 
 
