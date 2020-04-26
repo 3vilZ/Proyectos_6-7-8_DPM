@@ -29,6 +29,9 @@ public class BiciWheel : Interactable
 
     public Collider[] colInteract;
 
+    public GameObject goBag1;
+    public GameObject goBag2;
+
     void Start()
     {
         cmpRigidbody = GetComponent<Rigidbody>();
@@ -128,6 +131,16 @@ public class BiciWheel : Interactable
             {
                 colInteract[i].enabled = false;
             }
+
+            if (goBag1.GetComponent<BiciBag>().goInsideItem != null)
+            {
+                goBag1.GetComponent<BiciBag>().goInsideItem.GetComponent<Collider>().enabled = false;
+            }
+            if (goBag2.GetComponent<BiciBag>().goInsideItem != null)
+            {
+                goBag2.GetComponent<BiciBag>().goInsideItem.GetComponent<Collider>().enabled = false;
+            }
+
             GetInput();
             Steer();
             Accelerate();
@@ -140,6 +153,16 @@ public class BiciWheel : Interactable
             {
                 colInteract[i].enabled = true;
             }
+
+            if (goBag1.GetComponent<BiciBag>().goInsideItem != null)
+            {
+                goBag1.GetComponent<BiciBag>().goInsideItem.GetComponent<Collider>().enabled = true;
+            }
+            if (goBag2.GetComponent<BiciBag>().goInsideItem != null)
+            {
+                goBag2.GetComponent<BiciBag>().goInsideItem.GetComponent<Collider>().enabled = true;
+            }
+
             Steer();
             Accelerate();
             UpdateWheelPoses();

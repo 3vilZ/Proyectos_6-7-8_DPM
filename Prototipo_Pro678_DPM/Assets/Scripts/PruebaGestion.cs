@@ -304,8 +304,6 @@ public class PruebaGestion : MonoBehaviour
             bInteracting = true;
             DropItem2();
             GetComponent<CharacterController>().enabled = false;
-            //GetComponent<Rigidbody>().useGravity = false;
-            //GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Animator>().enabled = false;
             transform.position = goItemInteracted.GetComponent<BiciWheel>().tPlayerSaddle.position;
             transform.parent = goItemInteracted.transform;
@@ -349,6 +347,7 @@ public class PruebaGestion : MonoBehaviour
             {
                 goItemInteracted.GetComponent<BiciWheel>().bOnBicicle = false;
                 transform.position = goItemInteracted.GetComponent<BiciWheel>().tPlayerDown.position;
+                transform.rotation = new Quaternion(0, transform.rotation.y, 0, 1);
                 transform.parent = null;
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<Animator>().enabled = true;
