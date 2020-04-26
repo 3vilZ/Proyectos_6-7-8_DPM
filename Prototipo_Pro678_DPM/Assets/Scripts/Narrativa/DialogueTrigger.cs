@@ -8,8 +8,6 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Awake()
     {
-        
-
         //DontDestroyOnLoad(this);
         foreach (AudioConfig audio in dialogue.audioConfigs)
         {
