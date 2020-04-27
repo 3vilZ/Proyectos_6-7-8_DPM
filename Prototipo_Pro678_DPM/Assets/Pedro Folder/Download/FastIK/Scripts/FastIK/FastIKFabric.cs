@@ -240,8 +240,9 @@ public class FastIKFabric : MonoBehaviour
             Handles.DrawWireCube(Vector3.up * 0.5f, Vector3.one);
             current = current.parent;
         }
-    }
 #endif
+    }
+
 
 }
 
